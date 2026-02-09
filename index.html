@@ -31,6 +31,7 @@
             background-color: #eff6ff;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
         }
+
         /* Ajustes específicos para Impresión */
         @media print {
             @page {
@@ -100,7 +101,7 @@
     <div class="max-w-5xl mx-auto">
         <!-- Encabezado y Acciones -->
         <div class="flex justify-between items-center mb-8 no-print">
-            <h1 class="text-xl font-semibold text-slate-500 uppercase tracking-wider">Cotizador de Horas HGC.</h1>
+            <h1 class="text-xl font-semibold text-slate-500 uppercase tracking-wider">Cotizador de Horas H.G.C.</h1>
             <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium shadow-sm transition-all flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
                 Generar PDF / Imprimir
@@ -110,135 +111,130 @@
         <div class="form-card p-6 md:p-12">
             <!-- Título del Documento -->
             <div class="text-center border-b pb-8 mb-8">
-                <h2 class="text-3xl font-bold text-slate-800 uppercase mb-2">Prestación de Servicios Profesionales</h2>
+                <h2 class="text-3xl font-bold text-slate-800 uppercase mb-1">Prestación de Servicios Profesionales</h2>
                 <p class="text-slate-500 font-medium italic">Soporte Técnico y Mantenimiento de Equipo de Cómputo</p>
             </div>
 
-            <!-- Selección de Tipo de Soporte (Dinámico) -->
-            <section class="mb-10">
-                <h3 class="text-blue-600 font-bold mb-6 flex items-center gap-2">
-                    <span class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs">1</span>
+            <!-- Selección de Tipo de Soporte -->
+            <section class="mb-6">
+                <h3 class="text-blue-600 font-bold mb-4 flex items-center gap-2 text-sm">
+                    <span class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center text-[10px]">1</span>
                     SELECCIONE EL TIPO DE SOPORTE
                 </h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="service-container">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3" id="service-container">
                     <!-- Opción A -->
-                    <div onclick="selectService('independiente', 350, this)" class="service-option active p-5 rounded-xl border-slate-200 border bg-white" data-desc="Mantenimiento preventivo básico, soporte general y atención a usuarios finales.">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="text-xs font-bold text-blue-500 uppercase">Modalidad A</span>
-                            <span class="bg-blue-100 text-blue-700 text-[10px] px-2 py-0.5 rounded-full font-bold">ESTÁNDAR</span>
+                    <div onclick="selectService('independiente', 350, this)" class="service-option active p-4 rounded-xl border-slate-200 border bg-white" data-desc="Mantenimiento preventivo básico, soporte general y atención a usuarios finales.">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="text-[10px] font-bold text-blue-500 uppercase">Modalidad A</span>
+                            <span class="bg-blue-100 text-blue-700 text-[9px] px-2 py-0.5 rounded-full font-bold">ESTÁNDAR</span>
                         </div>
-                        <h4 class="font-bold text-slate-800">Técnico Independiente</h4>
-                        <p class="text-2xl font-bold text-slate-900 mt-2">$350 <span class="text-xs font-normal text-slate-500">/ hr</span></p>
+                        <h4 class="font-bold text-slate-800 text-sm">Técnico Independiente</h4>
+                        <p class="text-xl font-bold text-slate-900 mt-1">$350 <span class="text-[10px] font-normal text-slate-500">/ hr</span></p>
                     </div>
                     <!-- Opción B -->
-                    <div onclick="selectService('profesional', 400, this)" class="service-option p-5 rounded-xl border-slate-200 border bg-white" data-desc="Atención en sitio para empresas, gestión de múltiples equipos y soporte técnico.">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="text-xs font-bold text-slate-500 uppercase">Modalidad B</span>
+                    <div onclick="selectService('profesional', 400, this)" class="service-option p-4 rounded-xl border-slate-200 border bg-white" data-desc="Atención en sitio para empresas, gestión de múltiples equipos y soporte técnico.">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="text-[10px] font-bold text-slate-500 uppercase">Modalidad B</span>
                         </div>
-                        <h4 class="font-bold text-slate-800">Servicio Profesional</h4>
-                        <p class="text-2xl font-bold text-slate-900 mt-2">$400 <span class="text-xs font-normal text-slate-500">/ hr</span></p>
+                        <h4 class="font-bold text-slate-800 text-sm">Servicio Profesional</h4>
+                        <p class="text-xl font-bold text-slate-900 mt-1">$400 <span class="text-[10px] font-normal text-slate-500">/ hr</span></p>
                     </div>
                     <!-- Opción C -->
-                    <div onclick="selectService('especializado', 750, this)" class="service-option p-5 rounded-xl border-slate-200 border bg-white" data-desc="Infraestructura crítica: servidores, redes, seguridad, respaldos, virtualización y sistemas ERP.">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="text-xs font-bold text-slate-500 uppercase">Modalidad C</span>
-                            <span class="bg-amber-100 text-amber-700 text-[10px] px-2 py-0.5 rounded-full font-bold">CRÍTICO</span>
+                    <div onclick="selectService('especializado', 750, this)" class="service-option p-4 rounded-xl border-slate-200 border bg-white" data-desc="Infraestructura crítica: servidores, redes, seguridad, respaldos, virtualización y sistemas ERP.">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="text-[10px] font-bold text-blue-500 uppercase">Modalidad C</span>
+                            <span class="bg-amber-100 text-amber-700 text-[9px] px-2 py-0.5 rounded-full font-bold">CRÍTICO</span>
                         </div>
-                        <h4 class="font-bold text-slate-800">Servicio Especializado</h4>
-                        <p class="text-2xl font-bold text-slate-900 mt-2">$750 <span class="text-xs font-normal text-slate-500">/ hr</span></p>
+                        <h4 class="font-bold text-slate-800 text-sm">Servicio Especializado</h4>
+                        <p class="text-xl font-bold text-slate-900 mt-1">$750 <span class="text-[10px] font-normal text-slate-500">/ hr</span></p>
                     </div>
                 </div>
             </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Columna 1: Prestador -->
                 <section>
-                    <h3 class="text-blue-600 font-bold mb-4 flex items-center gap-2">
-                        <span class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs">2</span>
+                    <h3 class="text-blue-600 font-bold mb-3 flex items-center gap-2 text-sm">
+                        <span class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center text-[10px]">2</span>
                         DATOS DEL PRESTADOR
                     </h3>
-                    <div class="space-y-4">
-                        <input type="text" placeholder="Nombre / Razón Social" class="w-full border-b border-slate-200 py-2 text-slate-700 bg-transparent focus:border-blue-400">
-                        <div class="grid grid-cols-2 gap-4">
-                            <input type="text" placeholder="RFC (Opcional)" class="w-full border-b border-slate-200 py-2 text-slate-700">
-                            <input type="text" placeholder="Teléfono" class="w-full border-b border-slate-200 py-2 text-slate-700">
+                    <div class="space-y-3">
+                        <input type="text" placeholder="Nombre / Razón Social" class="w-full border-b border-slate-200 py-1 text-sm text-slate-700 bg-transparent focus:border-blue-400 outline-none">
+                        <div class="grid grid-cols-2 gap-3">
+                            <input type="text" placeholder="RFC" class="w-full border-b border-slate-200 py-1 text-sm text-slate-700 outline-none">
+                            <input type="text" placeholder="Teléfono" class="w-full border-b border-slate-200 py-1 text-sm text-slate-700 outline-none">
                         </div>
-                        <input type="email" placeholder="Correo Electrónico" class="w-full border-b border-slate-200 py-2 text-slate-700">
+                        <input type="email" placeholder="Correo Electrónico" class="w-full border-b border-slate-200 py-1 text-sm text-slate-700 outline-none">
                     </div>
                 </section>
 
                 <!-- Columna 2: Cliente -->
                 <section>
-                    <h3 class="text-blue-600 font-bold mb-4 flex items-center gap-2">
-                        <span class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs">3</span>
+                    <h3 class="text-blue-600 font-bold mb-3 flex items-center gap-2 text-sm">
+                        <span class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center text-[10px]">3</span>
                         DATOS DEL CLIENTE
                     </h3>
-                    <div class="space-y-4">
-                        <input type="text" placeholder="Nombre / Empresa Cliente" class="w-full border-b border-slate-200 py-2 text-slate-700">
-                        <div class="grid grid-cols-2 gap-4">
-                            <input type="text" placeholder="RFC (Opcional)" class="w-full border-b border-slate-200 py-2 text-slate-700">
-                            <input type="text" placeholder="Teléfono" class="w-full border-b border-slate-200 py-2 text-slate-700">
+                    <div class="space-y-3">
+                        <input type="text" placeholder="Nombre / Empresa Cliente" class="w-full border-b border-slate-200 py-1 text-sm text-slate-700 outline-none">
+                        <div class="grid grid-cols-2 gap-3">
+                            <input type="text" placeholder="RFC" class="w-full border-b border-slate-200 py-1 text-sm text-slate-700 outline-none">
+                            <input type="text" placeholder="Teléfono" class="w-full border-b border-slate-200 py-1 text-sm text-slate-700 outline-none">
                         </div>
-                        <input type="text" placeholder="Dirección del Servicio" class="w-full border-b border-slate-200 py-2 text-slate-700">
+                        <input type="text" placeholder="Dirección del Servicio" class="w-full border-b border-slate-200 py-1 text-sm text-slate-700 outline-none">
                     </div>
                 </section>
             </div>
 
-            <!-- Descripción -->
-            <section class="mt-10">
-                <h3 class="text-blue-600 font-bold mb-4 flex items-center gap-2">
-                    <span class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs">4</span>
+            <!-- Detalles -->
+            <section class="mt-8">
+                <h3 class="text-blue-600 font-bold mb-3 flex items-center gap-2 text-sm">
+                    <span class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center text-[10px]">4</span>
                     DETALLES DEL TRABAJO
                 </h3>
-                <div class="bg-blue-50 p-4 rounded-t-lg border-l-4 border-blue-500">
-                    <p class="text-xs font-bold text-blue-700 uppercase mb-1">Alcance del Soporte Seleccionado:</p>
-                    <p id="desc-dinamica" class="text-sm text-blue-900 italic">Mantenimiento preventivo básico, soporte general y atención a usuarios finales.</p>
+                <div class="bg-blue-50 p-3 rounded-t-lg border-l-4 border-blue-500">
+                    <p class="text-[9px] font-bold text-blue-700 uppercase mb-0.5">Alcance del Soporte Seleccionado:</p>
+                    <p id="desc-dinamica" class="text-[11px] text-blue-900 italic leading-tight">Mantenimiento preventivo básico, soporte general y atención a usuarios finales.</p>
                 </div>
-                <textarea rows="3" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-b-lg text-slate-600 text-sm focus:bg-white" placeholder="Describa aquí hallazgos adicionales o software instalado..."></textarea>
+                <textarea rows="2" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-b-lg text-slate-600 text-xs focus:bg-white resize-none" placeholder="Describa aquí hallazgos adicionales, piezas reemplazadas o software instalado..."></textarea>
             </section>
 
             <!-- Calculadora -->
-            <section class="mt-8 p-6 bg-slate-900 rounded-xl text-white">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <section class="mt-6 p-5 bg-slate-900 rounded-xl text-white">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                     <div class="flex items-center gap-4">
                         <div>
-                            <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Horas Totales</label>
-                            <input type="number" id="horas" value="1" min="1" oninput="calculateTotal()" class="w-24 p-2 rounded bg-slate-800 border-none text-xl font-bold text-blue-400 text-center">
+                            <label class="block text-[9px] font-bold text-slate-400 uppercase mb-1">Horas Totales</label>
+                            <input type="number" id="horas" value="1" min="1" oninput="calculateTotal()" class="w-20 p-1.5 rounded bg-slate-800 border-none text-lg font-bold text-blue-400 text-center outline-none">
                         </div>
-                        <div class="text-slate-500 text-2xl">×</div>
+                        <div class="text-slate-500 text-xl">×</div>
                         <div>
-                            <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Precio x Hora</label>
-                            <p id="precio-unitario" class="text-xl font-bold">$350.00</p>
+                            <label class="block text-[9px] font-bold text-slate-400 uppercase mb-1">Precio x Hora</label>
+                            <p id="precio-unitario" class="text-lg font-bold">$350.00</p>
                         </div>
                     </div>
                     <div class="text-right">
-                        <p class="text-xs font-bold text-blue-400 uppercase tracking-widest">Total a Pagar</p>
-                        <p class="text-4xl font-black" id="totalDisplay">$350.00 MXN</p>
-                        <p class="text-[10px] text-slate-400 mt-1">* Precios sujetos a cambios. No incluye refacciones.</p>
+                        <p class="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Total Estimado</p>
+                        <p class="text-3xl font-black" id="totalDisplay">$350.00 MXN</p>
                     </div>
                 </div>
             </section>
 
             <!-- Firmas -->
-            <div class="mt-16 grid grid-cols-2 gap-12">
+            <div class="mt-12 grid grid-cols-2 gap-10">
                 <div class="text-center">
-                    <div class="border-b border-slate-300 mb-2 h-16 flex items-end justify-center">
-                        <!-- Espacio para firma -->
-                    </div>
-                    <p class="font-bold text-slate-800 text-xs uppercase">Firma Prestador</p>
+                    <div class="border-b border-slate-300 mb-2 h-14 flex items-end justify-center"></div>
+                    <p class="font-bold text-slate-800 text-[10px] uppercase">Firma del Prestador</p>
                 </div>
                 <div class="text-center">
-                    <div class="border-b border-slate-300 mb-2 h-16 flex items-end justify-center">
-                        <!-- Espacio para firma -->
-                    </div>
-                    <p class="font-bold text-slate-800 text-xs uppercase">Aceptación Cliente</p>
+                    <div class="border-b border-slate-300 mb-2 h-14 flex items-end justify-center"></div>
+                    <p class="font-bold text-slate-800 text-[10px] uppercase">Conformidad del Cliente</p>
                 </div>
             </div>
 
             <!-- Pie de página -->
-            <div class="mt-12 pt-6 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-400 italic">
-                <p>Vigencia conforme a fecha de firma.</p>
-                <p>Formato de Soporte Técnico Ver. 2.0</p>
+            <div class="mt-8 pt-4 border-t border-slate-100 flex justify-between items-center text-[9px] text-slate-400 italic">
+                <p>Este documento es una cotización de servicios. Precios no incluyen IVA ni refacciones.</p>
+                <p>V. 2.1 - Generado el <span id="currentDate"></span></p>
             </div>
         </div>
     </div>
@@ -247,27 +243,19 @@
         let currentTarifa = 350;
 
         function selectService(type, price, element) {
-            // Actualizar Tarifa actual
             currentTarifa = price;
-            
-            // Quitar clase activa de todas las opciones
             const options = document.querySelectorAll('.service-option');
             options.forEach(opt => opt.classList.remove('active'));
-            
-            // Añadir clase activa al elemento clicado
             element.classList.add('active');
             
-            // Actualizar Descripción dinámica
             const desc = element.getAttribute('data-desc');
             document.getElementById('desc-dinamica').innerText = desc;
             
-            // Actualizar precio unitario visual
             document.getElementById('precio-unitario').innerText = new Intl.NumberFormat('es-MX', {
                 style: 'currency',
                 currency: 'MXN',
             }).format(price);
 
-            // Recalcular Total
             calculateTotal();
         }
 
@@ -281,10 +269,13 @@
             }).format(total) + ' MXN';
         }
 
-        // Inicializar al cargar
+        // Mostrar fecha actual
+        document.getElementById('currentDate').innerText = new Date().toLocaleDateString('es-MX');
+
         window.onload = calculateTotal;
     </script>
 </body>
 </html>
+
 
 
