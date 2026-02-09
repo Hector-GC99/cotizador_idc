@@ -31,12 +31,67 @@
             background-color: #eff6ff;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
         }
+        /* Ajustes específicos para Impresión */
         @media print {
-            .no-print { display: none; }
-            body { background: white; padding: 0; }
-            .form-card { box-shadow: none; border: 1px solid #e2e8f0; border-radius: 0; }
-            .service-option { border: 1px solid #e2e8f0 !important; background: white !important; }
-            .service-option.active { border: 2px solid #3b82f6 !important; }
+            @page {
+                size: portrait;
+                margin: 0; /* Establece márgenes a cero para evitar configuración manual */
+            }
+            
+            body { 
+                background: white !important; 
+                padding: 1cm !important; /* Añade el margen interno aquí para control total */
+                margin: 0 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .no-print { display: none !important; }
+            
+            .max-w-5xl {
+                max-width: 100% !important;
+                width: 100% !important;
+                margin: 0 !important;
+            }
+
+            .form-card { 
+                box-shadow: none !important; 
+                border: 1px solid #e2e8f0 !important; 
+                border-radius: 0 !important; 
+                padding: 1rem !important; /* Reducir padding interno */
+            }
+
+            /* Forzar visualización de rejilla en impresión */
+            .grid { display: grid !important; }
+            .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+            .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+
+            .service-option { 
+                border: 1px solid #e2e8f0 !important; 
+                background: white !important; 
+                padding: 0.75rem !important;
+            }
+            
+            .service-option.active { 
+                border: 2px solid #3b82f6 !important; 
+                background-color: #eff6ff !important;
+            }
+
+            /* Reducción de textos para que quepa todo */
+            h2 { font-size: 1.5rem !important; }
+            .text-3xl { font-size: 1.5rem !important; }
+            .mt-16 { margin-top: 2rem !important; }
+            .mt-10 { margin-top: 1.5rem !important; }
+            .pb-8, .mb-8 { padding-bottom: 1rem !important; margin-bottom: 1rem !important; }
+            
+            /* Inputs limpios para impresión */
+            input::placeholder, textarea::placeholder { color: transparent !important; }
+            input, textarea { border-color: #cbd5e1 !important; }
+            
+            /* Evitar saltos de página a la mitad del contenido */
+            section, .form-card, .grid {
+                page-break-inside: avoid;
+            }
         }
     </style>
 </head>
@@ -231,4 +286,5 @@
     </script>
 </body>
 </html>
+
 
